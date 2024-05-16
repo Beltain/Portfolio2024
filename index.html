@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Beltain Jordaan</title>
+        <link rel="icon" href="./icon.ico">
+
+        <link rel="preload" href="fonts/Poppins-Regular.ttf" as="font" type="font/ttf">
+        <link rel="stylesheet" href="./style.css">
+
+        <script src="./scripts/handlebars-v4.7.8.js" defer></script>
+        <script src="./data/projectsData.js" defer></script> 
+        <script src="./scripts/utils.js" defer></script> 
+        <script src="./scripts/showcase.js" defer></script> 
+        <script src="./scripts/scrollText.js" defer></script> 
+        <script src="./scripts/tooltip.js" defer></script> 
+        <script src="./scripts/program.js" defer></script>
+    </head>
+    <body>
+        <div id="tooltip" class="preventAllInteraction strikingBox">Hello</div>
+
+
+
+        <div id="showcaseOverlay">
+            <div id="showcaseWindow" class="mutedBox">
+                <div id="showcaseContainer">
+
+                    <script id="projectShowcase_Template" type="text/x-handlebars-template"> <!-- Project Showcase Project Showcase Project Showcase Project Showcase -->
+                        <h2 class="removeMargins centralText">{{this.projectName}}{{#if this.contributionYear}}<span style="font-weight: 200; font-size: 2.5vmin;"> ({{this.contributionYear}})</span>{{/if}}</h2>
+                        <hr><br>
+                        <article>
+                            <div class="inlineParent">
+                                <div class="textWall inlineChild" style="width: 58%; max-height: 30vh;">
+                                    <div>
+                                        <h4 class="removeMargins">Project Story</h4>
+                                        <p>{{this.story}}{{#if this.link}} <a href="{{this.link}}" target="_blank">{{this.linkText}}</a>{{/if}}</p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="inlineChild" style="height: 25vmin; width: 1%">
+                                    <div class="verticalDivider"></div>
+                                </div>
+                                <div class="textWall inlineChild" style="text-align: right; width: 35%; max-height: 30vh;">
+                                    <h4 class="removeMargins">Skills Involved</h4>
+                                    <ul class="blockList inlineList">
+                                        {{#each this.skills}}
+                                        <li class="mutedBox preventSelection"><h5 class="mutedText">{{this}}</h5></li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="inlineParent">
+                                <div class="textWall inlineChild" style="width: 25%; overflow: visible;">
+                                    <div>
+                                        <h4 class="removeMargins">Media</h4>
+                                        <ul id="mediaButtonsList" class="blockList buttonList">
+                                            {{#each this.media}}
+                                            <li class="strikingBox preventSelection"><h5 style="font-weight: 400;">{{this.title}}</h5></li> <!--selected class to be applied to selected element-->
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="inlineChild" style="text-align: right; width: 69%;">
+                                    <img id="projectShowcaseMedia_img" class="strikingBox projectShowcaseMedia" src="./media/placeholder.jpg">
+                                    <video id="projectShowcaseMedia_vid" class="strikingBox projectShowcaseMedia" src="./media/placeholder.mp4" controls autoplay muted loop></video>
+                                    <iframe id="projectShowcaseMedia_embed" class="strikingBox projectShowcaseMedia" src="https://sketchfab.com/models/c41649f1492b4ced8158c7ffac1962cb/embed" allow="autoplay"></iframe>
+                                </div>
+                            </div>
+                        </article>
+                    </script> <!-- Project Showcase Project Showcase Project Showcase Project Showcase Project Showcase Project Showcase Project Showcase Project Showcase -->
+                
+                    <script id="objectShowcase_Template" type="text/x-handlebars-template"> <!-- Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase -->
+                        <h2 class="removeMargins centralText">{{this.title}}</h2>
+                        <hr><br>
+                        <section {{{this.styleTag}}}> <!--Ugly workaround for handlebars issue with css style tags-->
+                            <iframe src="{{this.src}}#toolbar=0" width="100%" height="100%"></iframe>  <!--Can't set iframe height as apparently 100vh is not viewport height but something much smaller??-->
+                        </section>
+                    </script> <!-- Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase -->
+                
+                </div>
+                <button id="closeButton_ShowcaseOverlay" class="closeButton"></button>
+            </div>
+        </div>
+
+
+
+        <header>
+            <div id="scrollBanner_Upper" class="scrollBanner preventSelection">
+                <span class="scrollingText">Placeholder</span> <!--For some reason without this here the added elements are broken for one frame, use this to prewarm the scroll text-->
+            </div>
+            <div id="headerPage_Center">
+                <div id="headerTitle_Box">
+                    <h1 id="headerTitle_Heading" class="removeMargins centralText">BELTAIN JORDAAN</h1>
+                    <hr id="headerTitle_Divider"></hr>
+                    <h3 id="headerTitle_SubHeading" class="removeMargins centralText">Unity Gameplay Programmer</h3>
+                </div>
+            </div>
+            <div id="scrollBanner_Lower" class="scrollBanner preventSelection"></div>
+        </header>
+
+        <nav>
+            <ul id="navList">
+                <li><a href="#aAboutMe"><h4 class="strikingBox preventSelection removeMargins">About Me</h4></a></li>
+                <li><a href="#aMyWork"><h4 class="strikingBox preventSelection removeMargins">My Work</h4></a></li>
+                <li><a href="#aLinks"><h4 class="strikingBox preventSelection removeMargins">Links</h4></a></li>
+                <li><a href="#aContact"><h4 class="strikingBox preventSelection removeMargins">Contact</h4></a></li>
+            </ul>
+        </nav>
+
+
+
+
+        <section id="section_AboutMe" class="mutedBox mainSection">
+            <a id="aAboutMe" class="sectionAnchor"></a>
+            <h2 class="removeMargins centralText">About Me</h2>
+            <hr>
+            <br>
+            <article class="inlineParent sunken">
+                <div class="textWall centralText_All inlineChild" style="width: 45%"> <!--Text-->
+                    <div>
+                        <h4 class="removeMargins">Hello There.</h4>
+                        <p>Nice to meet you and thanks for stopping by!</p>
+                        <p>I'm Beltain, a Unity gameplay programmer with an interest in all aspects of game development. I'm on a mission to create engaging gameplay experiences and leave my mark in the worlds most creative and exciting industry!</p>
+                        <p>As far back as I can remember, I've always been interested in game dev. From throwing together 'games' in PowerPoint when I was very young to working on complex, cross-platform, multiplayer enabled projects in Unity today, I'm still just as thrilled to be doing what I love as I ever was!</p>
+                        <p>Besides enjoying the work, I also have a deep appreciation for the people in the industry, as it seems to attract a really special kind. You're all brilliant and I can't wait to meet more of you!</p>
+                    </div>
+                </div>
+                <div class="inlineChild" style="height: 60vh; width: 1%">
+                    <div class="verticalDivider"></div>
+                </div>
+                <div class="centralText_All inlineChild" style="height: 60vh;width: 40%"> <!--Img-->
+                    <img id="aboutMeImage" src="./media/about_me_picture.jpg" class="imageWall strikingBox" alt="Beltain Jordaan at a shiba inu cafe in Nara">
+                </div>
+            </article>
+        </section>
+        
+
+
+        <section id="section_MyWork" class="mutedBox mainSection">
+            <a id="aMyWork" class="sectionAnchor"></a>
+            <h2 class="removeMargins centralText">My Work</h2>
+            <hr>
+            <h3 class="centralText removeMargins subHeading">A sample of the work I do. Click for details!</h3>
+
+            <script id="projectShowcaseButton_Template" type="text/x-handlebars-template">
+                {{#each items}}
+                <button id="projectShowcaseButton_{{@index}}" class="tooltipped projectShowcaseButton strikingBox centralText_All">
+                    {{#if this.coverImageSrc}}
+                    <img src="{{this.coverImageSrc}}">
+                    {{else}}
+                    <img src="./media/placeholder.jpg">
+                    {{/if}}
+                    <h4 class="preventSelection removeMargins">{{this.projectName}}</h4>
+                    {{#if this.contributionYear}}
+                    <p class="preventSelection removeMargins">({{this.contributionYear}})</p>
+                    {{/if}}
+                </button>
+                {{/each}}
+            </script> <!--Template for the below container to populate with-->
+
+            <div class="projectShowcaseButtonContainer sunken">
+            </div>
+        </section>
+        
+
+
+        <section id="section_Links" class="mutedBox mainSection">
+            <a id="aLinks" class="sectionAnchor"></a>
+            <h2 class="removeMargins centralText">Links</h2>
+            <hr>
+            <h3 class="centralText removeMargins subHeading">More information and places you can find me.</h3>
+            <section class="centralText sunken" style="padding: 1vh;">
+                <button id="linkButton_CV" class="strikingBox linkButton">
+                    <h4 class="preventSelection removeMargins">My Curriculum Vitae</h4>
+                    <img src="./media/icon_CV.png">
+                </button>
+                <a href="https://www.linkedin.com/in/beltain-jordaan/" target="_blank" class="linkButton"><button id="linkButton_LinkedIn" class="strikingBox linkButton">
+                    <h4 class="preventSelection removeMargins">My LinkedIn</h4>
+                    <img src="./media/icon_linkedin.png">
+                </button></a>
+                <a href="https://beltain-jordaan.itch.io/" target="_blank" class="linkButton"><button id="linkButton_Itch" class="strikingBox linkButton">
+                    <h4 class="preventSelection removeMargins">My Itch</h4>
+                    <img src="./media/icon_Itch.png">
+                </button></a>
+                <!--<a href="https://www.instagram.com/theonlydevdiary" target="_blank"><button id="linkButton_Insta" class="strikingBox linkButton">
+                    <h4 class="preventSelection removeMargins">My Instagram</h4>
+                    <img src="./media/icon_insta.png">
+                </button></a>-->
+                <a href="https://github.com/Beltain" target="_blank" class="linkButton"><button id="linkButton_Github" class="strikingBox">
+                    <h4 class="preventSelection removeMargins">My GitHub</h4>
+                    <img src="./media/icon_GitHub.png">
+                </button></a>
+            </section>
+        </section>
+
+
+
+        <section id="section_Contact" class="mutedBox mainSection">
+            <a id="aContact" class="sectionAnchor"></a>
+            <h2 class="removeMargins centralText">Contact</h2>
+            <hr>
+            <h3 class="centralText removeMargins subHeading">Looking to hire or collaborate? Get in touch:</h3>
+            <div class="sunken" style="position: relative;">
+                <form id="form_ContactMe" class="centralText" action="https://submit-form.com/ABVCrHena" method="POST" target="_blank"> <!--FormSpree: https://formspree.io/f/xyyrvvkd-->
+                    <h4 class="removeMargins centralText">Your Email Address: </h4><input 
+                        name="contact_emailAddress" 
+                        id="contact_emailAddress" 
+                        type="email" 
+                        placeholder="coolperson@email.com" 
+                        class="mutedBox textField"
+                        style="width:30vw;"
+                        required>
+                    <br><br>
+                    <h4 class="removeMargins centralText">Your Message: </h4><textarea 
+                        name="contact_emailContent" 
+                        id="contact_emailContent" 
+                        rows="10"
+                        placeholder="Hi, let's collab!" 
+                        class="mutedBox textField"
+                        style="resize: vertical; width: 60vw"
+                        autocomplete="off"
+                        required></textarea>
+                    <br><br>
+                    <button
+                        name="contact_sendEmail"
+                        id="contact_sendEmail"
+                        class="strikingBox submit"
+                        onclick="sendContactForm()"
+                        ><h4 class="removeMargins">Send</h4></button>
+                </form>
+                <div id="form_ContactMe_ResetPanel">
+                    <img src="./media/icon_submitted.png">
+                    <h4 class="removeMargins">Message sent!</h4>
+                    <button class="strikingBox" onclick="resetContactForm()"><h4 class="removeMargins">Send Another</h4></button>
+                </div>
+            </div>
+        </section>
+        
+
+
+        <footer>
+            <div id="scrollBanner_Footer" class="scrollBanner preventSelection"></div>
+        </footer>
+    </body>
+</html>
