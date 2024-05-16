@@ -72,7 +72,7 @@
                         <h2 class="removeMargins centralText">{{this.title}}</h2>
                         <hr><br>
                         <section {{{this.styleTag}}}> <!--Ugly workaround for handlebars issue with css style tags-->
-                            <iframe src="{{this.src}}#toolbar=0" width="100%" height="100%"></iframe>  <!--Can't set iframe height as apparently 100vh is not viewport height but something much smaller??-->
+                            <embed src="{{this.src}}#toolbar=0" width="100%" height="100%"></embed>  <!--Can't set iframe height as apparently 100vh is not viewport height but something much smaller??-->
                         </section>
                     </script> <!-- Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase Object SHowcase -->
                 
@@ -85,7 +85,7 @@
 
         <header>
             <div id="scrollBanner_Upper" class="scrollBanner preventSelection">
-                <span class="scrollingText">Placeholder</span> <!--For some reason without this here the added elements are broken for one frame, use this to prewarm the scroll text-->
+                <span class="scrollingText"> </span> <!--For some reason without this here the added elements are broken for one frame, use this to prewarm the scroll text-->
             </div>
             <div id="headerPage_Center">
                 <div id="headerTitle_Box">
