@@ -1,10 +1,19 @@
+:root {
+    --color-strikingYellow: #eeff00;
+    --color-strikingYellow_faded: #eeff00CC;
+    --color-creamyYellow: #f9ffa3;
+    --color-creamyYellow_faded: #f9ffa322;
+    --color-mutedGrey: #57583d;
+    --color-backgroundGrey: #141414;
+}
+
 ::-moz-selection {
     color: black;
-    background: #eeff00;
+    background: var(--color-strikingYellow);
   }
 ::selection {
     color: black;
-    background: #eeff00;
+    background: var(--color-strikingYellow);
 }
 
 @font-face {
@@ -29,7 +38,7 @@ html {
 }
 
 body {
-    background-color: #141414;
+    background-color: var(--color-backgroundGrey);
     margin: 0px;
     overflow-x: hidden;
 }
@@ -54,8 +63,8 @@ nav {
     justify-content: center;
     align-content: center;
     text-align: center;
-    border-top: 0.2vh solid #eeff00;
-    border-bottom: 0.2vh solid #eeff00;
+    border-top: 0.2vh solid var(--color-strikingYellow);
+    border-bottom: 0.2vh solid var(--color-strikingYellow);
 
     z-index: 1;
 }
@@ -86,7 +95,7 @@ nav li h4 { /*Nav link buttons*/
 }
 
 nav li h4:hover { /*Nav link buttons*/
-    background-color: #eeff00;
+    background-color: var(--color-strikingYellow);
     color: black;
     transform: scale(1.2);
 }
@@ -106,46 +115,46 @@ section.mainSection {
 h1 {
     font-weight: 700;
     font-size: 10vmin;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
     filter: drop-shadow(0vmin 1vmin #000000);
 }
 
 h2 {
     font-weight: 400;
     font-size: 5vmin;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
     filter: drop-shadow(0vmin 0.5vmin #000000);
 }
 
 h3 {
     font-weight: 200;
     font-size: 3.25vmin;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
 }
 
 h4 {
     font-weight: 400;
     font-size: 2.2vmin;
     letter-spacing: 0.1vw;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
 }
 
 h5 {
     font-weight: 200;
     font-size: 2vmin;
     letter-spacing: 0.1vw;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
 }
 
 p {
     font-weight: 100;
     font-size: 2vmin;
-    color: #f9ffa3;
+    color: var(--color-creamyYellow);
 }
 
 p > a {
     font-weight: 200;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
 }
 
 h1.mutedText,
@@ -155,7 +164,7 @@ h4.mutedText,
 h5.mutedText,
 h6.mutedText,
 p.mutedText {
-    color: #f9ffa3;
+    color: var(--color-creamyYellow);
 }
 h1.strikingText,
 h2.strikingText,
@@ -164,7 +173,7 @@ h4.strikingText,
 h5.strikingText,
 h6.strikingText,
 p.strikingText {
-    color: #eeff00;
+    color: var(--color-strikingYellow);
 }
 
 button {
@@ -183,7 +192,7 @@ hr { /*horizontal divider*/
     margin: 0 auto;
     border-top: 0.1vh solid;
     position: relative;
-    border-color: #eeff00CC;
+    border-color: var(--color-strikingYellow_faded);
 }
 
 .verticalDivider {
@@ -194,7 +203,7 @@ hr { /*horizontal divider*/
     transform: translate(50%, -50%);
     margin: auto 0;
     border-left: 0.1vw solid;
-    border-color: #eeff00CC;
+    border-color: var(--color-strikingYellow_faded);
     display: inline-block;
 }
 
@@ -216,7 +225,7 @@ section.mainSection .subHeading {
 
 button.strikingBox:hover {
     transform: scale(1.15);
-    background-color: #eeff00;
+    background-color: var(--color-strikingYellow);
 
     transition: transform 0.1s;
 }
@@ -273,18 +282,18 @@ ul.buttonList li.mutedBox.selected > * /*Assuming text*/ {
 }
 
 ul.buttonList li.strikingBox.selected {
-    background-color: #eeff00;
+    background-color: var(--color-strikingYellow);
 }
 ul.buttonList li.mutedBox.selected {
-    background-color: #57583d;
+    background-color: var(--color-mutedGrey);
 }
 
 ul.buttonList li.strikingBox:hover {
-    background-color: #eeff00;
+    background-color: var(--color-strikingYellow);
 
 }
 ul.buttonList li.mutedBox:hover {
-    background-color: #57583d;
+    background-color: var(--color-mutedGrey);
 }
 
 
@@ -297,7 +306,7 @@ form textarea.textField {
     border: 0.3vh solid #8f8f59;
     filter: drop-shadow(0.26vw 0.26vh #8f8f59);
 
-    color: #f9ffa3;
+    color: var(--color-creamyYellow);
     font-size: 2vmin;
     padding: 1.2vmin;
 }
@@ -313,13 +322,13 @@ form input.textField:-webkit-autofill:active{
 form textarea:focus, 
 form input:focus{
     outline: none;
-    border: 0.3vh solid #eeff00;
-    filter: drop-shadow(0.26vw 0.26vh #eeff00);
+    border: 0.3vh solid var(--color-strikingYellow);
+    filter: drop-shadow(0.26vw 0.26vh var(--color-strikingYellow));
 }
 
 form input.textField::placeholder,
 form textarea.textField::placeholder {
-    color: #f9ffa322;
+    color: var(--color-creamyYellow_faded);
 }
 
 form button.strikingBox.submit {
@@ -348,7 +357,7 @@ form button.strikingBox.submit {
     padding-right: 0.5em;
     height: 100%;
 
-    color: #eeff00;
+    color: var(--color-strikingYellow);
     opacity: 0.25;
 }
 
@@ -367,16 +376,16 @@ form button.strikingBox.submit {
 
 .strikingBox {
     background-color: black;
-    border: 0.3vh solid #eeff00;
-    border-color: #eeff00;
-    filter: drop-shadow(0.26vw 0.26vh #eeff00);
+    border: 0.3vh solid var(--color-strikingYellow);
+    border-color: var(--color-strikingYellow);
+    filter: drop-shadow(0.26vw 0.26vh var(--color-strikingYellow));
 }
 
 .mutedBox {
     background-color: rgb(14, 14, 14);
-    border: 0.3vh solid #57583d;
-    border-color: #57583d;
-    filter: drop-shadow(0.26vw 0.26vh #57583d);
+    border: 0.3vh solid var(--color-mutedGrey);
+    border-color: var(--color-mutedGrey);
+    filter: drop-shadow(0.26vw 0.26vh var(--color-mutedGrey));
 }
 
 .sunken {
@@ -515,7 +524,7 @@ button.linkButton > img,
 }
 
 .projectShowcaseButton:hover {
-    background-color: #eeff00;
+    background-color: var(--color-strikingYellow);
     transform: scale(1.1);
     background-image: none;
 }
@@ -653,7 +662,7 @@ button.linkButton > img,
 
     font-weight: 100;
     font-size: 1.4vmin;
-    color: #eeff00;
+    color: var(--color-strikingYellow);
 }
 
 
@@ -672,7 +681,7 @@ button.linkButton > img,
 }
 
 #scrollBanner_Footer .scrollingText {
-    color: #f9ffa3;
+    color: var(--color-creamyYellow);
     opacity: 0.1;
 }
 
