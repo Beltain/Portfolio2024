@@ -143,6 +143,8 @@ function start(){
 }
 
 function preload(){
+    hljs.highlightAll();
+
     initialiseLinkButtons();
     bakeProjectShowcaseButtons();
     document.fonts.ready.then(start);

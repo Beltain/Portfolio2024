@@ -57,9 +57,29 @@ const projectsData = {
                     src: "./media/hyperion/squad_movement.mp4"
                 },
                 {
-                    title: "Project Layout",
-                    type: "img",
-                    src: "./media/hyperion/project_architecture.png"
+                    title: "Code: Pooler",
+                    type: "code",
+                    src: "./media/hyperion/pooling.cs"
+                },
+                {
+                    title: "Code: Debug Commands",
+                    type: "code",
+                    src: "./media/hyperion/DebugCommands.cs"
+                },
+                {
+                    title: "Code: Manager 1",
+                    type: "code",
+                    src: "./media/hyperion/ThingyManager.cs"
+                },
+                {
+                    title: "Code: Manager 2",
+                    type: "code",
+                    src: "./media/hyperion/TrainManager.cs"
+                },
+                {
+                    title: "Code: Movement",
+                    type: "code",
+                    src: "./media/hyperion/Unit_DudeMover.cs"
                 },
             ]
         },
@@ -81,10 +101,15 @@ const projectsData = {
                     src: "./media/website/clearly_wip.png"
                 },
                 {
-                    title: "Code",
-                    type: "img",
-                    src: "./media/website/code.png"
+                    title: "Code: Showcaser",
+                    type: "code",
+                    src: "./scripts/showcase.js"
                 },
+                {
+                    title: "Code: Scrolling Text",
+                    type: "code",
+                    src: "./scripts/scrollText.js"
+                }
             ]
         },
         {

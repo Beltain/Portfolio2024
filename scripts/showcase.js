@@ -73,7 +73,8 @@ const projectShowcaser = {
     _projectShowcaseMedias: {
         img: undefined,
         vid: undefined,
-        embed: undefined
+        embed: undefined,
+        code: undefined /* only support C# at the moment */
     },
 
     _currentProject: undefined,
@@ -112,6 +113,7 @@ const projectShowcaser = {
             this._projectShowcaseMedias.img = document.getElementById("projectShowcaseMedia_img");
             this._projectShowcaseMedias.vid = document.getElementById("projectShowcaseMedia_vid");
             this._projectShowcaseMedias.embed = document.getElementById("projectShowcaseMedia_embed");
+            this._projectShowcaseMedias.code = document.getElementById("projectShowcaseMedia_code");
 
             const mediaButtonsListElements = this._mediaButtonsListElement.children;
             for (let i = 0; i < mediaButtonsListElements.length; i++){
@@ -125,17 +127,47 @@ const projectShowcaser = {
             this._projectShowcaseMedias.img = undefined;
             this._projectShowcaseMedias.vid = undefined;
             this._projectShowcaseMedias.embed = undefined;
+            this._projectShowcaseMedias.code = undefined;
         }
     },
 
 
     //Public functions
-    setSelectedMedia(mediaData){
+    async setSelectedMedia(mediaData){
         const typeToDisplay = mediaData === undefined ? undefined : mediaData.type;
         const mediaTypes = Object.keys(this._projectShowcaseMedias);
         for(let i = 0; i < mediaTypes.length; i++){
-            this._projectShowcaseMedias[mediaTypes[i]].style.display = typeToDisplay === mediaTypes[i] ? "inline-block" : "none";
-            this._projectShowcaseMedias[mediaTypes[i]].src = typeToDisplay === mediaTypes[i] ? mediaData.src : "";
+            const isMediaDisplayType = typeToDisplay === mediaTypes[i];
+            this._projectShowcaseMedias[mediaTypes[i]].style.display = isMediaDisplayType ? "inline-block" : "none";
+            
+
+            if(mediaTypes[i] === "code"){
+                let codeToDisplay = "";
+
+                if (isMediaDisplayType){
+                    const codeAndLanguage = await utils.getCodeAndLanguageFromFile(mediaData.src);
+                    codeToDisplay = codeAndLanguage !== undefined ? codeAndLanguage.content : ""; //Set code content
+
+                    //Remove old language class from code
+                    const classList = this._projectShowcaseMedias.code.classList;
+                    for(let i = 0; i < classList.length; i++){
+                        if(!classList[i].includes("language-"))
+                            continue;
+                        this._projectShowcaseMedias.code.children[0].classList.remove(classList[i])
+                    }
+
+                    //set new language to highlight
+                    this._projectShowcaseMedias.code.children[0].classList.add(`language-${codeAndLanguage.language}`);
+                }
+                this._projectShowcaseMedias.code.children[0].innerHTML = codeToDisplay;
+                
+                //do highlight
+                if (this._projectShowcaseMedias.code.children[0].hasAttribute('data-highlighted'))
+                    this._projectShowcaseMedias.code.children[0].removeAttribute('data-highlighted'); //remove old highlighted marker so that highlighter can do its thing
+                hljs.highlightAll();
+            }
+            else
+                this._projectShowcaseMedias[mediaTypes[i]].src = isMediaDisplayType ? mediaData.src : "";
         }
 
         const selectedMediaIndexInProjectList = this._currentProject.media.indexOf(mediaData);

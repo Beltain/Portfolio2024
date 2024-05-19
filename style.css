@@ -563,6 +563,8 @@ button.linkButton > img,
 }
 
 .projectShowcaseMedia {
+    position: relative;
+
     width: 70vmin;
     height: 50vmin;
     max-width: 100%;
@@ -647,6 +649,20 @@ button.linkButton > img,
 
 #showcaseContainer .inlineChild {
     vertical-align: top; 
+}
+
+
+#projectShowcaseMedia_code{
+    position: relative;
+    padding: 0; 
+    margin: 0; 
+    overflow: auto;
+}
+
+#projectShowcaseMedia_code code {
+    position: absolute;
+    text-align: left;
+    inset: 0;
 }
 
 

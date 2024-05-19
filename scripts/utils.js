@@ -1,4 +1,11 @@
 const utils = {
+    _extensionToLanguageLookup: {
+        cs: 'csharp',
+        js: 'javascript',
+        py: 'python'
+    },
+
+
     getHTMLParentWithClass(element, className) {
         let parent = element.parentNode;
         while (parent !== undefined && parent.classList !== undefined && !parent.classList.contains(className)) {
@@ -20,5 +27,29 @@ const utils = {
                 window.scrollTo(scrollLeft, scrollTop);
             };
         }
+    },
+
+    async getCodeAndLanguageFromFile(filePath){
+        try {
+            const response = await fetch(filePath);
+            if (!response.ok)
+                throw new Error('Network response was not ok ' + response.statusText);
+            return {
+                content: await response.text(),
+                language: this._extensionToLanguageLookup[this.getFileExtension(filePath)]
+            };
+        }
+        catch (error){
+            console.error(`Could not fetch code from file: ${error}`)
+            return undefined;
+        }
+    },
+
+    getFileExtension(path) {
+        const lastDotIndex = path.lastIndexOf('.');
+        if (lastDotIndex === -1 || lastDotIndex === 0) {
+            return '';
+        }
+        return path.slice(lastDotIndex + 1);
     }
 }
