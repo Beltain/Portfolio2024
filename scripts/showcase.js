@@ -167,7 +167,7 @@ const projectShowcaser = {
                     //set new language to highlight
                     this._projectShowcaseMedias.code.element.children[0].classList.add(`language-${codeAndLanguage.language}`);
                 }
-                this._projectShowcaseMedias.code.element.children[0].innerHTML = codeToDisplay;
+                this._projectShowcaseMedias.code.element.children[0].innerHTML = utils.escapeUnsafeHtml(codeToDisplay);
                 
                 //do highlight
                 if (this._projectShowcaseMedias.code.element.children[0].hasAttribute('data-highlighted'))

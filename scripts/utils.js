@@ -45,6 +45,16 @@ const utils = {
         }
     },
 
+    escapeUnsafeHtml(unsafe)
+    {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    },
+
     getFileExtension(path) {
         const lastDotIndex = path.lastIndexOf('.');
         if (lastDotIndex === -1 || lastDotIndex === 0) {
