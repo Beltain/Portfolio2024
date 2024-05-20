@@ -47,7 +47,7 @@ const utils = {
 
     escapeUnsafeHtml(unsafe)
     {
-        return unsafe
+        return unsafe 
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
