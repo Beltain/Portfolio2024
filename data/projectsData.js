@@ -61,7 +61,7 @@ const projectsData = {
                 {
                     title: "Pooler",
                     type: "code",
-                    src: "./media/hyperion/pooling.cs"
+                    src: "./media/hyperion/Pooling.cs"
                 },
                 {
                     title: "Debug Terminal",
