@@ -1,21 +1,3 @@
-:root {
-    --color-strikingYellow: #eeff00;
-    --color-strikingYellow_faded: #eeff00CC;
-    --color-creamyYellow: #f9ffa3;
-    --color-creamyYellow_faded: #f9ffa322;
-    --color-mutedGrey: #57583d;
-    --color-backgroundGrey: #141414;
-}
-
-::-moz-selection {
-    color: black;
-    background: var(--color-strikingYellow);
-  }
-::selection {
-    color: black;
-    background: var(--color-strikingYellow);
-}
-
 @font-face {
     font-family: "Poppins";
     font-weight: 400;
@@ -32,8 +14,58 @@
     src: url('fonts/Poppins-Thin.ttf') format('truetype');
 }
 
+
+:root {
+    --color-strikingYellow: #eeff00;
+    --color-strikingYellow_faded: #eeff00CC;
+    --color-creamyYellow: #f9ffa3;
+    --color-creamyYellow_faded: #f9ffa322;
+    --color-mutedGrey: #57583d;
+    --color-mutedGrey_faded: #57583dCC;
+    --color-backgroundGrey: #141414;
+}
+
+::-moz-selection {
+    color: black;
+    background: var(--color-strikingYellow);
+  }
+::selection {
+    color: black;
+    background: var(--color-strikingYellow);
+}
+
+::-webkit-scrollbar {
+    width: 2vmin;
+    height: 2vmin;
+}
+::-webkit-scrollbar-track {
+    background-color: #010101;
+}
+::-webkit-scrollbar-track:horizontal{
+    border-top: 1px solid var(--color-mutedGrey);
+}
+::-webkit-scrollbar-track:vertical{
+    border-left: 1px solid var(--color-mutedGrey);
+}
+::-webkit-scrollbar-corner {
+    background-color: #050505;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-mutedGrey);
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:vertical {border-left: 1px solid transparent;}
+::-webkit-scrollbar-thumb:horizontal {border-top: 1px solid transparent;}
+::-webkit-scrollbar-thumb:hover {background: var(--color-strikingYellow);}
+
+@-moz-document url-prefix(){
+    html {
+        scrollbar-color: var(--color-strikingYellow) #010101;
+    }
+}
+
 html {
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
     font-family: 'Poppins';
 }
 
@@ -649,6 +681,21 @@ button.linkButton > img,
 
 #showcaseContainer .inlineChild {
     vertical-align: top; 
+}
+
+#mediaButtonsList li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: relative;
+    min-height: 3vmin;
+    vertical-align: text-bottom;
+}
+
+#mediaButtonsList li > img {
+    width: 2.5vmin;
+    margin: auto 0.5vmin;
 }
 
 

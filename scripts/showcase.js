@@ -71,10 +71,10 @@ const projectShowcaser = {
 
     _mediaButtonsListElement: undefined, //The list of media buttons, set after bake 'mediaButtonsList'
     _projectShowcaseMedias: {
-        img: undefined,
-        vid: undefined,
-        embed: undefined,
-        code: undefined /* only support C# at the moment */
+        img: { element: undefined, iconSrc: "./icons/media_img.png" },
+        vid: { element: undefined, iconSrc: "./icons/media_video.png" },
+        embed: { element: undefined, iconSrc: "./icons/media_anim.png" },
+        code: { element: undefined, iconSrc: "./icons/media_code.png" }
     },
 
     _currentProject: undefined,
@@ -110,10 +110,10 @@ const projectShowcaser = {
         if(this._currentProject !== undefined){
             showcaser.setShowcaseHTML(this._projectShowcaseTemplate(this._currentProject));
             this._mediaButtonsListElement = document.getElementById("mediaButtonsList");
-            this._projectShowcaseMedias.img = document.getElementById("projectShowcaseMedia_img");
-            this._projectShowcaseMedias.vid = document.getElementById("projectShowcaseMedia_vid");
-            this._projectShowcaseMedias.embed = document.getElementById("projectShowcaseMedia_embed");
-            this._projectShowcaseMedias.code = document.getElementById("projectShowcaseMedia_code");
+            this._projectShowcaseMedias.img.element = document.getElementById("projectShowcaseMedia_img");
+            this._projectShowcaseMedias.vid.element = document.getElementById("projectShowcaseMedia_vid");
+            this._projectShowcaseMedias.embed.element = document.getElementById("projectShowcaseMedia_embed");
+            this._projectShowcaseMedias.code.element = document.getElementById("projectShowcaseMedia_code");
 
             const mediaButtonsListElements = this._mediaButtonsListElement.children;
             for (let i = 0; i < mediaButtonsListElements.length; i++){
@@ -124,10 +124,18 @@ const projectShowcaser = {
         }
         else {
             this._mediaButtonsListElement = undefined;
-            this._projectShowcaseMedias.img = undefined;
-            this._projectShowcaseMedias.vid = undefined;
-            this._projectShowcaseMedias.embed = undefined;
-            this._projectShowcaseMedias.code = undefined;
+            this._projectShowcaseMedias.img.element = undefined;
+            this._projectShowcaseMedias.vid.element = undefined;
+            this._projectShowcaseMedias.embed.element = undefined;
+            this._projectShowcaseMedias.code.element = undefined;
+        }
+    },
+
+    _addMissingTypeIconsToProjectData(projectData){
+        for (let i = 0; i < projectData.media.length; i++){
+            if(projectData.media[i].iconSrc !== undefined)
+                continue;
+            projectData.media[i].iconSrc = this._projectShowcaseMedias[projectData.media[i].type].iconSrc;
         }
     },
 
@@ -138,7 +146,7 @@ const projectShowcaser = {
         const mediaTypes = Object.keys(this._projectShowcaseMedias);
         for(let i = 0; i < mediaTypes.length; i++){
             const isMediaDisplayType = typeToDisplay === mediaTypes[i];
-            this._projectShowcaseMedias[mediaTypes[i]].style.display = isMediaDisplayType ? "inline-block" : "none";
+            this._projectShowcaseMedias[mediaTypes[i]].element.style.display = isMediaDisplayType ? "inline-block" : "none";
             
 
             if(mediaTypes[i] === "code"){
@@ -149,25 +157,25 @@ const projectShowcaser = {
                     codeToDisplay = codeAndLanguage !== undefined ? codeAndLanguage.content : ""; //Set code content
 
                     //Remove old language class from code
-                    const classList = this._projectShowcaseMedias.code.classList;
+                    const classList = this._projectShowcaseMedias.code.element.classList;
                     for(let i = 0; i < classList.length; i++){
                         if(!classList[i].includes("language-"))
                             continue;
-                        this._projectShowcaseMedias.code.children[0].classList.remove(classList[i])
+                        this._projectShowcaseMedias.code.element.children[0].classList.remove(classList[i])
                     }
 
                     //set new language to highlight
-                    this._projectShowcaseMedias.code.children[0].classList.add(`language-${codeAndLanguage.language}`);
+                    this._projectShowcaseMedias.code.element.children[0].classList.add(`language-${codeAndLanguage.language}`);
                 }
-                this._projectShowcaseMedias.code.children[0].innerHTML = codeToDisplay;
+                this._projectShowcaseMedias.code.element.children[0].innerHTML = codeToDisplay;
                 
                 //do highlight
-                if (this._projectShowcaseMedias.code.children[0].hasAttribute('data-highlighted'))
-                    this._projectShowcaseMedias.code.children[0].removeAttribute('data-highlighted'); //remove old highlighted marker so that highlighter can do its thing
+                if (this._projectShowcaseMedias.code.element.children[0].hasAttribute('data-highlighted'))
+                    this._projectShowcaseMedias.code.element.children[0].removeAttribute('data-highlighted'); //remove old highlighted marker so that highlighter can do its thing
                 hljs.highlightAll();
             }
             else
-                this._projectShowcaseMedias[mediaTypes[i]].src = isMediaDisplayType ? mediaData.src : "";
+                this._projectShowcaseMedias[mediaTypes[i]].element.src = isMediaDisplayType ? mediaData.src : "";
         }
 
         const selectedMediaIndexInProjectList = this._currentProject.media.indexOf(mediaData);
@@ -191,6 +199,7 @@ const projectShowcaser = {
         
         //Bake handlebars for project
         this._currentProject = projectData;
+        this._addMissingTypeIconsToProjectData(this._currentProject);
         this._bakeProject();
 
         //Set default selection

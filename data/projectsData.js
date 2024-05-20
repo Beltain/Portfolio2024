@@ -18,13 +18,15 @@ const projectsData = {
                     src: "./media/terraTech/on_switch.jpg"
                 },
                 {
-                    title: "Old Trailer",
+                    title: "2019 Trailer",
                     type: "embed",
+                    iconSrc: "./icons/media_video.png",
                     src: "https://www.youtube.com/embed/EYFPChP_q20?autoplay=1"
                 },
                 {
                     title: "Player Using Circuits",
                     type: "embed",
+                    iconSrc: "./icons/media_video.png",
                     src: "https://www.youtube.com/embed/XExPrMRWFSo?autoplay=1"
                 },
             ]
@@ -57,27 +59,27 @@ const projectsData = {
                     src: "./media/hyperion/squad_movement.mp4"
                 },
                 {
-                    title: "Code: Pooler",
+                    title: "Pooler",
                     type: "code",
                     src: "./media/hyperion/pooling.cs"
                 },
                 {
-                    title: "Code: Debug Commands",
+                    title: "Debug Terminal",
                     type: "code",
                     src: "./media/hyperion/DebugCommands.cs"
                 },
                 {
-                    title: "Code: Manager 1",
+                    title: "Manager #1",
                     type: "code",
                     src: "./media/hyperion/ThingyManager.cs"
                 },
                 {
-                    title: "Code: Manager 2",
+                    title: "Manager #2",
                     type: "code",
                     src: "./media/hyperion/TrainManager.cs"
                 },
                 {
-                    title: "Code: Movement",
+                    title: "Character Module",
                     type: "code",
                     src: "./media/hyperion/Unit_DudeMover.cs"
                 },
@@ -101,12 +103,12 @@ const projectsData = {
                     src: "./media/website/clearly_wip.png"
                 },
                 {
-                    title: "Code: Showcaser",
+                    title: "Showcaser",
                     type: "code",
                     src: "./scripts/showcase.js"
                 },
                 {
-                    title: "Code: Scrolling Text",
+                    title: "Scrolling Text",
                     type: "code",
                     src: "./scripts/scrollText.js"
                 }
@@ -158,6 +160,7 @@ const projectsData = {
                 {
                     title: "Trailer",
                     type: "embed",
+                    iconSrc: "./icons/media_video.png",
                     src: "https://www.youtube.com/embed/UNED36WHocI?autoplay=1"
                 },
                 {

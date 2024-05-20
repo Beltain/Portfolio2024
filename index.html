@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Beltain Jordaan | Portfolio</title>
-        <link rel="icon" href="./icon.ico">
+        <link rel="icon" href="./icons/favicon.ico">
         <link rel="stylesheet" href="./style.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,14 +59,14 @@
                                         <h4 class="removeMargins">Media</h4>
                                         <ul id="mediaButtonsList" class="blockList buttonList">
                                             {{#each this.media}}
-                                            <li class="strikingBox preventSelection"><h5 style="font-weight: 400;">{{this.title}}</h5></li> <!--selected class to be applied to selected element-->
+                                            <li class="strikingBox preventSelection">{{#if this.iconSrc}}<img src="{{this.iconSrc}}">{{/if}}<h5 style="font-weight: 400;">{{this.title}}</h5></li> <!--selected class to be applied to selected element-->
                                             {{/each}}
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="inlineChild" style="text-align: right; width: 69%;">
                                     <img id="projectShowcaseMedia_img" class="strikingBox projectShowcaseMedia" src="./media/placeholder.jpg">
-                                    <video id="projectShowcaseMedia_vid" class="strikingBox projectShowcaseMedia" src="./media/placeholder.mp4" controls autoplay muted loop></video>
+                                    <video id="projectShowcaseMedia_vid" class="strikingBox projectShowcaseMedia" src="./media/placeholder.mp4" controls autoplay muted loop webkit-playsinline playsinline></video>
                                     <iframe id="projectShowcaseMedia_embed" class="strikingBox projectShowcaseMedia" src="https://sketchfab.com/models/c41649f1492b4ced8158c7ffac1962cb/embed" allow="autoplay"></iframe>
                                     <pre id="projectShowcaseMedia_code" class="strikingBox projectShowcaseMedia"><code class="language-csharp">void LArry(){}</code></pre>
                                 </div>
@@ -177,23 +177,23 @@
             <section class="centralText sunken" style="padding: 1vh;">
                 <button id="linkButton_CV" class="strikingBox linkButton">
                     <h4 class="preventSelection removeMargins">My Curriculum Vitae</h4>
-                    <img src="./media/icon_CV.png">
+                    <img src="./icons/links_CV.png">
                 </button>
                 <a href="https://www.linkedin.com/in/beltain-jordaan/" target="_blank" class="linkButton"><button id="linkButton_LinkedIn" class="strikingBox linkButton">
                     <h4 class="preventSelection removeMargins">My LinkedIn</h4>
-                    <img src="./media/icon_linkedin.png">
+                    <img src="./icons/links_linkedin.png">
                 </button></a>
                 <a href="https://beltain-jordaan.itch.io/" target="_blank" class="linkButton"><button id="linkButton_Itch" class="strikingBox linkButton">
                     <h4 class="preventSelection removeMargins">My Itch</h4>
-                    <img src="./media/icon_Itch.png">
+                    <img src="./icons/links_Itch.png">
                 </button></a>
                 <!--<a href="https://www.instagram.com/theonlydevdiary" target="_blank"><button id="linkButton_Insta" class="strikingBox linkButton">
                     <h4 class="preventSelection removeMargins">My Instagram</h4>
-                    <img src="./media/icon_insta.png">
+                    <img src="./icons/links_insta.png">
                 </button></a>-->
                 <a href="https://github.com/Beltain" target="_blank" class="linkButton"><button id="linkButton_Github" class="strikingBox">
                     <h4 class="preventSelection removeMargins">My GitHub</h4>
-                    <img src="./media/icon_GitHub.png">
+                    <img src="./icons/links_GitHub.png">
                 </button></a>
             </section>
         </section>
@@ -234,17 +234,12 @@
                         ><h4 class="removeMargins">Send</h4></button>
                 </form>
                 <div id="form_ContactMe_ResetPanel">
-                    <img src="./media/icon_submitted.png">
+                    <img src="./icons/contact_submitted.png">
                     <h4 class="removeMargins">Message sent!</h4>
                     <button class="strikingBox" onclick="resetContactForm()"><h4 class="removeMargins">Send Another</h4></button>
                 </div>
             </div>
         </section>
-        
-
-        <!-- <section class="mutedBox mainSection">
-            <pre style="padding: 0; margin: 0; max-height: 200px; overflow: auto;"><code class="language-csharp"></code></pre>
-        </section> -->
 
 
         <footer>
