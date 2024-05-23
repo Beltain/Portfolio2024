@@ -44,13 +44,16 @@ function bakeProjectShowcaseButtons() {
     const template = Handlebars.compile(source);
     const showcaseButtonContainers = document.getElementsByClassName("projectShowcaseButtonContainer");
     const html = template(projectsData);
-    for (let i = 0; i < showcaseButtonContainers.length; i++){
-        showcaseButtonContainers[i].innerHTML = html;
-    }
+    showcaseButtonContainers[0].innerHTML = html; //probably only gonna be using one
+
+    // for (let i = 0; i < showcaseButtonContainers.length; i++){
+    // }
     const showcaseButtons = document.getElementsByClassName("projectShowcaseButton");
     for (let i = 0; i < showcaseButtons.length; i++){
+        const showcaseButtonElementIndex = showcaseButtons[i].id.slice("projectShowcaseButton_".length); 
+        console.log(`${"projectShowcaseButton_".length} \ ${showcaseButtons[0].id}`)
         projectShowcaseButtonHandlers.push(
-            configureProjectShowcaseButtonEventHandler(showcaseButtons[i], projectsData.items[i])
+            configureProjectShowcaseButtonEventHandler(showcaseButtons[i], projectsData.items[showcaseButtonElementIndex])
         );
     }
 }
@@ -144,6 +147,10 @@ function start(){
 
 function preload(){
     hljs.highlightAll();
+
+    Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+    });
 
     initialiseLinkButtons();
     bakeProjectShowcaseButtons();

@@ -2,6 +2,7 @@ const projectsData = {
     items: [
         {
             projectName: "Terratech",
+            projectLevel: "Professional",
             contributionYear: "Ongoing",
             coverImageSrc: "./media/terraTech/cover.jpg",
             story: "A massive project I work on at Payload Studios that taught me much about maintaining a legacy system while also challenging me to implement complex gameplay systems, networked physics objects, platform integrations, and build pipelines. My biggest contribution here was spearheading and championing the circuit building system.",
@@ -33,6 +34,7 @@ const projectsData = {
         },
         {
             projectName: "Project Hyperion",
+            projectLevel: "Personal",
             contributionYear: "Ongoing",
             coverImageSrc: "./media/hyperion/cover_titled.jpg",
             story: "I've designed the systems in this game to be robust from the ground up. While it's still early days for the gameplay this game already features solid pooling, UI, save/load, AI, and input handling systems. My goal with this project is to see it through, and for that reason I've put a heavy emphasis on good architecture.",
@@ -87,6 +89,7 @@ const projectsData = {
         },
         {
             projectName: "This Website",
+            projectLevel: "Personal",
             contributionYear: "2024",
             coverImageSrc: "./media/website/cover.png",
             story: "It was getting to be about time to update my portfolio again when I decided to challenge myself. Without a lick of web dev experience I embarked on a learning adventure, coming out the other side one month later with this, my first website!",
@@ -116,6 +119,7 @@ const projectsData = {
         },
         {
             projectName: "Soul Wickie",
+            projectLevel: "Personal",
             contributionYear: "2023",
             coverImageSrc: "./media/soulWickie/cover.png",
             story: "I took part in the 2023 GMTK Game Jam with my partner assisting with audio and art and this was the result. We managed to grab a top 6% spot out of 6700+ entries, but for me the real reward was having finished this jam with good time management despite having other commitments the weekend it took place!",
@@ -147,6 +151,7 @@ const projectsData = {
         },
         {
             projectName: "Grid Force",
+            projectLevel: "Professional",
             contributionYear: "2021",
             coverImageSrc: "./media/gridForce/cover.jpeg",
             story: "Grid Force was a project I worked on at Playtra Games. It was my first job in the industry and a very educational experience. I got to work alongside another programmer and a team of around 10 people on a project that was invaluable to my development. I learned a lot in terms of communication, project architecture, and optimisation while I was there.",
@@ -177,6 +182,7 @@ const projectsData = {
         },
         {
             projectName: "Infinity Brawler",
+            projectLevel: "Personal",
             contributionYear: "2020",
             coverImageSrc: "./media/infinityBrawler/cover.png",
             story: "A friend and I were keen to prototype something small and snappy so we took a crack at a beat-em-up game, with me on code and character models and them on environment art. My goal with this project was to use it to really challenge myself from a game feel and animation standpoint. This was the end result, a small snippet of a game that's incredibly satisfying to play",
@@ -216,6 +222,7 @@ const projectsData = {
         },
         {
             projectName: "World 01",
+            projectLevel: "Personal",
             contributionYear: "2020",
             coverImageSrc: "./media/world01/cover.png",
             story: "I decided to head into yet another indie horror game with a couple friends of mine. This one had the unqiue mechanic of blending first person 3D and 2D retro gameplay. My role was largely concerning direction, character movement, character modelling and interactions. In the end this project didn't see the light of day, but its scope was grand and I learned a lot from it.",
@@ -260,6 +267,7 @@ const projectsData = {
         },
         {
             projectName: "Facility 17",
+            projectLevel: "Personal",
             contributionYear: "2019",
             coverImageSrc: "./media/facility17/cover.png",
             story: "This was just a short prototype of a Resident Evil style horror game a buddy and I were exploring. In the end it didn't go anywhere but I was able to get some good practice with character modelling, animation and movement controllers.",
@@ -289,6 +297,7 @@ const projectsData = {
         },
         {
             projectName: "Vapordrive",
+            projectLevel: "Personal",
             contributionYear: "2018",
             coverImageSrc: "./media/vaporDrive/capsule_art.png",
             story: "It's early on in my professional life and after years of messing about in engine and throwing some prototypes together I finally decide to commit to seeing a game through from start to finish. Vapordrive is that game. Released to the Apple app store in 2018, it's an endless runner inspired by the vaporwave aesthetic that I directed with a couple friends contributing.",

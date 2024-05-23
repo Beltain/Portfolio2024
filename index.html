@@ -148,18 +148,39 @@
             <h3 class="centralText removeMargins subHeading">A sample of the work I do. Click for details!</h3>
 
             <script id="projectShowcaseButton_Template" type="text/x-handlebars-template">
+                <br>
+                <h4 class="removeMargins"><strong>Professional Projects</strong></h4>
                 {{#each items}}
-                <button id="projectShowcaseButton_{{@index}}" class="tooltipped projectShowcaseButton strikingBox centralText_All">
-                    {{#if this.coverImageSrc}}
-                    <img src="{{this.coverImageSrc}}">
-                    {{else}}
-                    <img src="./media/placeholder.jpg">
-                    {{/if}}
-                    <h4 class="preventSelection removeMargins">{{this.projectName}}</h4>
-                    {{#if this.contributionYear}}
-                    <p class="preventSelection removeMargins">({{this.contributionYear}})</p>
-                    {{/if}}
-                </button>
+                    {{#ifEquals this.projectLevel "Professional"}}
+                        <button id="projectShowcaseButton_{{@index}}" class="tooltipped projectShowcaseButton strikingBox centralText_All">
+                            {{#if this.coverImageSrc}}
+                                <img src="{{this.coverImageSrc}}">
+                            {{else}}
+                                <img src="./media/placeholder.jpg">
+                            {{/if}}
+                            <h4 class="preventSelection removeMargins">{{this.projectName}}</h4>
+                            {{#if this.contributionYear}}
+                                <p class="preventSelection removeMargins">({{this.contributionYear}})</p>
+                            {{/if}}
+                        </button>
+                    {{/ifEquals}}
+                {{/each}}
+                <br><br>
+                <h4 class="removeMargins"><strong>Personal Projects</strong></h4>
+                {{#each items}}
+                    {{#ifEquals this.projectLevel "Personal"}}
+                        <button id="projectShowcaseButton_{{@index}}" class="tooltipped projectShowcaseButton strikingBox centralText_All">
+                            {{#if this.coverImageSrc}}
+                                <img src="{{this.coverImageSrc}}">
+                            {{else}}
+                                <img src="./media/placeholder.jpg">
+                            {{/if}}
+                            <h4 class="preventSelection removeMargins">{{this.projectName}}</h4>
+                            {{#if this.contributionYear}}
+                                <p class="preventSelection removeMargins">({{this.contributionYear}})</p>
+                            {{/if}}
+                        </button>
+                    {{/ifEquals}}
                 {{/each}}
             </script> <!--Template for the below container to populate with-->
 
