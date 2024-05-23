@@ -3,7 +3,7 @@ const projectsData = {
         {
             projectName: "Terratech",
             projectLevel: "Professional",
-            contributionYear: "Ongoing",
+            contributionYear: "2021 - Ongoing",
             coverImageSrc: "./media/terraTech/cover.jpg",
             story: "A massive project I work on at Payload Studios that taught me much about maintaining a legacy system while also challenging me to implement complex gameplay systems, networked physics objects, platform integrations, and build pipelines. My biggest contribution here was spearheading and championing the circuit building system.",
             skills: [ "C#", "Unity", "Optimisation", "Multi-Platform", "EOS", "Networking", "Jira", "Python", "Jenkins", "Json", "Physics", "HLSL", "Systems", "Git", "Azure", "Win Forms" ],
@@ -35,7 +35,7 @@ const projectsData = {
         {
             projectName: "Project Hyperion",
             projectLevel: "Personal",
-            contributionYear: "Ongoing",
+            contributionYear: "2023 - Ongoing",
             coverImageSrc: "./media/hyperion/cover_titled.jpg",
             story: "I've designed the systems in this game to be robust from the ground up. While it's still early days for the gameplay this game already features solid pooling, UI, save/load, AI, and input handling systems. My goal with this project is to see it through, and for that reason I've put a heavy emphasis on good architecture.",
             skills: [ "C#", "Unity", "Design", "Project Management", "Behaviour Trees", "Architecture", "Json", "Shadergraph", "Systems", "Engine", "Git" ],
@@ -152,7 +152,7 @@ const projectsData = {
         {
             projectName: "Grid Force",
             projectLevel: "Professional",
-            contributionYear: "2021",
+            contributionYear: "2020 - 2021",
             coverImageSrc: "./media/gridForce/cover.jpeg",
             story: "Grid Force was a project I worked on at Playtra Games. It was my first job in the industry and a very educational experience. I got to work alongside another programmer and a team of around 10 people on a project that was invaluable to my development. I learned a lot in terms of communication, project architecture, and optimisation while I was there.",
             skills: [ "C#", "Unity", "UI Programming", "Multi-Platform", "Local Multiplayer", "Json", "UI Programming", "Prototyping", "AI", "Git" ],
@@ -223,7 +223,7 @@ const projectsData = {
         {
             projectName: "World 01",
             projectLevel: "Personal",
-            contributionYear: "2020",
+            contributionYear: "2019 - 2020",
             coverImageSrc: "./media/world01/cover.png",
             story: "I decided to head into yet another indie horror game with a couple friends of mine. This one had the unqiue mechanic of blending first person 3D and 2D retro gameplay. My role was largely concerning direction, character movement, character modelling and interactions. In the end this project didn't see the light of day, but its scope was grand and I learned a lot from it.",
             skills: [ "C#", "Unity", "Design", "Animation", "3D Modelling", "Systems", "Texturing", "Story", "Systems", "Git" ],
@@ -298,7 +298,7 @@ const projectsData = {
         {
             projectName: "Vapordrive",
             projectLevel: "Personal",
-            contributionYear: "2018",
+            contributionYear: "2017 - 2018",
             coverImageSrc: "./media/vaporDrive/capsule_art.png",
             story: "It's early on in my professional life and after years of messing about in engine and throwing some prototypes together I finally decide to commit to seeing a game through from start to finish. Vapordrive is that game. Released to the Apple app store in 2018, it's an endless runner inspired by the vaporwave aesthetic that I directed with a couple friends contributing.",
             skills: [ "C#", "Unity", "Design", "Optimisation", "3D Modelling", "Direction", "Publishing", "Git" ],
